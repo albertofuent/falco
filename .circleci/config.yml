@@ -493,7 +493,7 @@ jobs:
           name: Publish rpm
           command: |
             FALCO_VERSION=$(cat /build/release/userspace/falco/config_falco.h | grep 'FALCO_VERSION ' | cut -d' ' -f3 | sed -e 's/^"//' -e 's/"$//')
-            /source/falco/scripts/publish-rpm -f /build/release/falco-${FALCO_VERSION}-x86_64.rpm -f /build-arm64/release/falco-${FALCO_VERSION}-aarch64.rpm -r rpm
+            /source/falco/scripts/publish-rpm -s -f /build/release/falco-${FALCO_VERSION}-x86_64.rpm -f /build-arm64/release/falco-${FALCO_VERSION}-aarch64.rpm -r rpm
       - run:
           name: Publish bin
           command: |
@@ -523,7 +523,7 @@ jobs:
           name: Publish deb
           command: |
             FALCO_VERSION=$(cat /build/release/userspace/falco/config_falco.h | grep 'FALCO_VERSION ' | cut -d' ' -f3 | sed -e 's/^"//' -e 's/"$//')
-            /source/falco/scripts/publish-deb -f /build/release/falco-${FALCO_VERSION}-x86_64.deb -f /build-arm64/release/falco-${FALCO_VERSION}-aarch64.deb -r deb
+            /source/falco/scripts/publish-deb -s -f /build/release/falco-${FALCO_VERSION}-x86_64.deb -f /build-arm64/release/falco-${FALCO_VERSION}-aarch64.deb -r deb
   
   "build-docker":
     docker:
